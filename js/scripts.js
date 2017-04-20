@@ -20,14 +20,15 @@ $(function() {
 			var $column = $('<div>').addClass('column'); 
 			var $columnTitle = $('<h2>').addClass('column-title').text(self.name); 
 			var $columnCardList = $('<ul>').addClass('column-list'); 
-			var $columnDelete = $('<button>').addClass('btn-delete').text('x'); 
+			var $columnDelete = $('<button>').addClass('btn-delete').text('x');
+			var $columnIgnore = $('<button>').addClass('btn-delete').text('Anuluj'); 
 			var $columnAddCard = $('<button>').addClass('add-card').text('Dodaj kartę'); 
 			// PODPINANIE ODPOWIEDNICH ZDARZEŃ 
 			$columnDelete.click(function() { 
 				self.removeColumn(); 
 			}); 
 			$columnAddCard.click(function(event) { 
-				self.addCard(new Card(prompt("Wpisz nazwę karty"))); 
+				self.addCard(new Card(prompt("Wpisz nazwę karty")));
 			}); 
 			// KONSTRUOWANIE ELEMENTU KOLUMNY 
 			$column.append($columnTitle) 
@@ -35,8 +36,12 @@ $(function() {
 				.append($columnAddCard) 
 				.append($columnCardList); 
 			// ZWRACANIE STWORZONEJ KOLUMNY 
-			return $column;
-		} 
+			if (name !== null) {
+				return $column;
+			} else {
+				alert("Podaj nazwę kolumny")
+			};
+		};
 	};
 
 	//Prototyp dla kolumny
@@ -66,7 +71,11 @@ $(function() {
 			}); 
 		// SKŁADANIE I ZWRACANIE KARTY 
 		$card.append($cardDelete) .append($cardDescription); 
-		return $card; 
+		if (description !== null) {
+				return $card;
+			} else {
+				alert("Podaj nazwę karty")
+			}; 
 		} 
 	};
 
@@ -112,5 +121,5 @@ $(function() {
 	// DODAWANIE KART DO KOLUMN 
 	todoColumn.addCard(card1); 
 	doingColumn.addCard(card2);
-})
+});
 	
