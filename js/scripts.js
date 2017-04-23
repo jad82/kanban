@@ -29,15 +29,15 @@ $(function() {
 			});
 
 			$columnAddCard.click(function() {
-        		self.addCard(new Card(prompt("Wpisz nazwę karty")));
-			});
-			//Zwracanie kolumny - jeśli podano nazwę
-			$column.append($columnDelete).append($columnTitle).append($columnAddCard).append($columnCardList);
-			if (name !== null) {
-				return $column;
-			} else {
-				alert("Podaj nazwę kolumny")
+			var cardDescription = prompt('Wpisz nazwę karty');
+			if (cardDescription !== null) { 
+				self.addCard(new Card(cardDescription))
+			} else { alert('Podanie nazwy karty jest wymagane')
 			};
+			});
+			//Zwracanie kolumny
+			$column.append($columnDelete).append($columnTitle).append($columnAddCard).append($columnCardList);
+				return $column;
     	};
 	}
 	//Prototyp dla kolumny
@@ -67,11 +67,7 @@ $(function() {
 			});
 			$card.append($cardDelete).append($cardDescription);
 			//Zwracamy kartę, jeśli jest nazwa
-			if (description !== null) {
-				return $card;
-			} else {
-				alert("Podaj nazwę karty")
-			};
+			return $card
 		}
 	};
 
@@ -102,7 +98,11 @@ $(function() {
   	$('.create-column').click(function(){
 		var name = prompt('Wpisz nazwę kolumny');
 		var column = new Column(name);
-    	board.addColumn(column);
+    	if (name !== null) {
+    		board.addColumn(column);
+    	} else {
+				alert("Podaj nazwę kolumny")
+		};
   	});
   
 	// TWORZENIE KOLUMN
