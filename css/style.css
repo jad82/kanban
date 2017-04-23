@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css?family=Audiowide');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+
+}
+.board {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	min-height: 100vh;
+	align-items: center;
+	background-color: rgba(167, 194, 204, 0.2);
+}
+.board h1 {
+	font-family: 'Audiowide', cursive;
+	align-self: center;
+	font-size: 72px;
+	font-weight: 700;
+	text-transform: uppercase;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	color: black;
+}
+.board h1:before {
+	content: '\f085';
+	font-family: FontAwesome;
+	margin-right: 10px;
+	font-size: 200px;
+	opacity: 0.3;
+	color: grey;
+}
+.create-column {
+	background-color: #ad0d0d;
+	border-radius: 5%;
+	border: 5px solid #ad0d0d;
+	color: white;
+	text-transform: uppercase;
+	font-weight: 600;
+	letter-spacing: 2px;
+	padding: 10px 10px 10px 10px;
+}
+
+.column-container {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	width: 100%;
+	align-items: center;
+	justify-content: space-around;
+	list-style-type: none;
+	margin: 25px 5px 5px 5px;
+}
+.column {
+	margin: 20px;
+	min-width: 250px;
+	background-color: white;
+	min-height: 30vh;
+	display: flex;
+	flex-direction: column;
+	padding: 15px
+}
+.column ul {
+	list-style-type: none
+}
+.column-title {
+	font-size: 14px;
+	font-weight: 600;
+	text-transform: uppercase;
+}
+.w3-btn {
+	width: 50%;
+}
+.btn-delete {
+	width: 30px;
+	height: 30px;
+	align-self: flex-end;
+}
